@@ -15,7 +15,7 @@ st.set_page_config(
 # --- NGROK TUNNEL SETUP ---
 def setup_ngrok():
     # Replace this string with your actual ngrok token when running locally
-    NGROK_TOKEN = "PASTE_NGROK_TOKEN_HERE" 
+    NGROK_TOKEN = "39qHca9e2bYOq3LjkjULZf1nChv_35YncPTC4izeYV4CrwZ6r" 
     
     if NGROK_TOKEN != "PASTE_NGROK_TOKEN_HERE":
         try:
