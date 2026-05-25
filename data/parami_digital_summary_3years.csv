@@ -1,0 +1,33 @@
+year,month,semester,avg_screen_time_hours,avg_productive_screen_time,avg_social_media_hours,avg_study_hours,avg_productivity_score,avg_sleep_hours,avg_focus_score,avg_stress_level,avg_mood_score,avg_free_time_hours,avg_physical_activity_minutes,burnout_indicator,academic_workload_level,internship_commitment_level,dominant_device_usage,dominant_app_category,productivity_trend
+2023,August,Year1-Sem1,9.2,2.4,2.1,2.8,4.8,6.9,4.6,7.2,5.4,7.8,22,No,High,None,Mobile,YouTube Shorts,Declining
+2023,September,Year1-Sem1,8.7,3.0,1.9,3.2,5.4,7.1,5.2,6.4,5.8,8.1,27,No,High,None,Laptop,Study Tools,Improving
+2023,October,Year1-Sem1,8.9,3.5,2.0,3.6,5.8,7.0,5.6,6.1,6.0,7.9,30,No,High,None,Laptop,Study Tools,Improving
+2023,November,Year1-Sem1,9.3,3.2,2.2,3.3,5.3,6.6,5.1,7.0,5.5,7.4,24,No,High,None,Laptop,Study Tools,Declining
+2023,December,Year1-Sem1,9.8,2.6,2.8,2.4,4.5,6.2,4.7,7.8,5.0,8.2,18,Yes,High,None,Mobile,YouTube Shorts,Declining
+2024,January,Year1-Sem2,8.4,3.4,2.0,3.8,6.0,7.2,6.0,5.6,6.2,8.5,29,No,High,None,Laptop,Study Tools,Improving
+2024,February,Year1-Sem2,8.1,3.7,1.8,4.0,6.3,7.1,6.3,5.3,6.4,8.3,32,No,High,None,Laptop,Study Tools,Improving
+2024,March,Year1-Sem2,8.5,3.5,2.1,3.7,5.9,6.9,5.9,6.0,6.0,8.1,28,No,High,None,Laptop,Study Tools,Stable
+2024,April,Year1-Sem2,9.2,3.0,2.7,3.0,5.2,6.5,5.2,7.2,5.4,8.6,22,Yes,High,None,Mobile,YouTube Shorts,Declining
+2024,May,Year1-Sem2,8.6,2.8,2.9,2.2,4.9,6.7,5.0,6.5,5.7,9.8,21,No,Moderate,None,Mobile,YouTube Shorts,Stable
+2024,June,Year1-Summer,10.8,1.8,2.8,0.6,4.4,7.8,4.8,2.9,6.7,12.2,35,No,Low,None,Mobile,YouTube Shorts,Declining
+2024,July,Year1-Summer,11.4,1.6,3.1,0.5,4.0,8.0,4.5,2.5,7.0,12.6,30,No,Low,None,Mobile,YouTube Shorts,Declining
+2024,August,Year2-Sem1,7.4,3.2,1.8,3.2,6.2,7.3,6.4,4.6,6.5,8.9,55,No,Moderate,None,Laptop,Study Tools,Improving
+2024,September,Year2-Sem1,7.1,3.6,1.6,3.6,6.6,7.2,6.7,4.4,6.7,8.6,60,No,Moderate,None,Laptop,Study Tools,Improving
+2024,October,Year2-Sem1,7.3,3.8,1.7,3.8,6.7,7.0,6.8,4.8,6.5,8.4,58,No,High,None,Laptop,Productivity,Stable
+2024,November,Year2-Sem1,7.8,3.5,2.0,3.3,6.1,6.8,6.2,5.8,6.1,8.1,50,No,High,None,Laptop,Study Tools,Declining
+2024,December,Year2-Sem1,8.2,2.8,2.4,2.6,5.4,6.5,5.5,6.5,5.8,9.0,38,No,High,None,Mobile,YouTube Shorts,Declining
+2025,January,Year2-Sem2,7.9,3.8,2.6,3.9,6.5,7.2,6.6,4.7,6.6,9.0,52,No,Moderate,None,Mobile,Instagram,Improving
+2025,February,Year2-Sem2,8.1,4.0,2.9,4.0,6.7,7.1,6.7,5.0,6.6,8.7,50,No,Moderate,None,Laptop,Productivity,Improving
+2025,March,Year2-Sem2,8.4,3.9,3.1,3.7,6.4,6.9,6.4,5.5,6.3,8.5,48,No,High,None,Laptop,Study Tools,Stable
+2025,April,Year2-Sem2,8.9,3.5,3.4,3.0,5.7,6.6,5.8,6.6,5.9,9.0,40,Yes,High,None,Mobile,Instagram,Declining
+2025,May,Year2-Sem2,8.5,3.0,3.3,2.3,5.3,6.8,5.5,5.8,6.1,9.7,36,No,Moderate,None,Mobile,Instagram,Stable
+2025,June,Year2-Summer,10.2,2.0,4.2,0.8,4.8,7.7,5.2,3.0,6.8,12.0,42,No,Low,None,Mobile,Instagram,Stable
+2025,July,Year2-Summer,10.8,1.8,4.6,0.6,4.5,7.9,5.0,2.7,7.0,12.4,38,No,Low,None,Mobile,YouTube Shorts,Declining
+2025,August,Year3-Sem1,10.4,5.0,3.8,4.5,6.8,6.9,6.6,6.2,6.0,7.2,35,No,High,High,Laptop,Productivity,Improving
+2025,September,Year3-Sem1,10.9,5.4,4.0,4.7,7.0,6.7,6.8,6.5,6.1,6.8,32,No,High,High,Laptop,Productivity,Improving
+2025,October,Year3-Sem1,11.2,5.6,4.2,4.8,7.1,6.5,6.7,6.8,5.9,6.4,28,No,High,High,Laptop,Study Tools,Stable
+2025,November,Year3-Sem1,11.6,4.8,4.5,4.0,6.2,6.1,5.9,7.6,5.4,6.2,22,Yes,High,High,Laptop,Study Tools,Declining
+2025,December,Year3-Sem1,11.9,3.8,4.8,3.0,5.3,5.8,5.2,8.1,4.9,7.0,17,Yes,High,Moderate,Mobile,Instagram,Declining
+2026,January,Year3-Sem2,11.1,5.2,4.1,4.6,7.0,7.0,6.9,5.8,6.2,7.4,30,No,High,High,Laptop,Productivity,Improving
+2026,February,Year3-Sem2,11.4,5.5,4.3,4.8,7.2,6.9,7.0,6.2,6.3,7.1,26,No,High,High,Laptop,Productivity,Improving
+2026,March,Year3-Sem2,11.8,4.2,4.6,3.6,5.9,6.5,5.4,7.2,5.5,7.6,20,No,High,High,Laptop,Study Tools,Declining
