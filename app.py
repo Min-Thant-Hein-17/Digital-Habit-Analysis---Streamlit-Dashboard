@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import os
-from pyngrok import ngrok
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
@@ -11,21 +9,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-# --- NGROK TUNNEL SETUP ---
-def setup_ngrok():
-    # Replace this string with your actual ngrok token when running locally
-    NGROK_TOKEN = "39qHca9e2bYOq3LjkjULZf1nChv_35YncPTC4izeYV4CrwZ6r" 
-    
-    if NGROK_TOKEN != "PASTE_NGROK_TOKEN_HERE":
-        try:
-            ngrok.set_auth_token(NGROK_TOKEN)
-            public_url = ngrok.connect(8501).public_url
-            st.sidebar.success(f"🌐 App is live at: [Click Here]({public_url})")
-        except Exception as e:
-            st.sidebar.error("Failed to connect to ngrok. Check terminal.")
-    else:
-        st.sidebar.warning("Ngrok token not set. Running on localhost only.")
 
 # --- DATA LOADING ---
 @st.cache_data
@@ -36,7 +19,6 @@ def load_data():
 
 # --- MAIN APP LOGIC ---
 def main():
-    setup_ngrok()
     
     # Load datasets
     df_daily, df_monthly = load_data()
