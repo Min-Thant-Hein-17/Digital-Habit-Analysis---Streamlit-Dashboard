@@ -27,7 +27,7 @@ def set_custom_theme(image_path):
                 background-attachment: fixed;
             }}
             .block-container {{
-                background-color: rgba(10, 15, 30, 0.85); /* Slightly darker for better readability */
+                background-color: rgba(10, 15, 30, 0.85); 
                 padding-top: 2rem;
                 padding-bottom: 2rem;
                 border-radius: 10px;
@@ -60,13 +60,12 @@ def set_custom_theme(image_path):
 # --- DATA LOADING ---
 @st.cache_data
 def load_data():
-    # Loading data from the data folder
     daily_df = pd.read_csv("data/digital_habits_march2026.csv")
     monthly_df = pd.read_csv("data/parami_digital_summary_3years.csv")
     
-    # Process dates for the heatmap
-    daily_df['date'] = pd.to_datetime(daily_df['date'])
-    daily_df['Week Number'] = daily_df['date'].dt.isocalendar().week
+    # Ensure days of the week are sorted logically for charts, not alphabetically
+    day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    daily_df['day_of_week'] = pd.Categorical(daily_df['day_of_week'], categories=day_order, ordered=True)
     
     return daily_df, monthly_df
 
@@ -76,7 +75,8 @@ def style_chart(fig):
         template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#e2e8f0")
+        font=dict(color="#e2e8f0"),
+        title_font_size=20 # Makes the simple titles stand out
     )
     return fig
 
@@ -89,7 +89,7 @@ def main():
     st.sidebar.title("📱 Navigation")
     page = st.sidebar.radio(
         "Select a Page:",
-        ["📖 Story Overview", "📊 Daily Behavior (EDA)", "📈 Academic Trends", "⚖️ Ethics & Limitations"]
+        ["📖 Story Overview", "📊 Daily Habits (March)", "📈 Long-Term Trends", "⚖️ Ethics & Limitations"]
     )
     
     st.sidebar.divider()
@@ -99,35 +99,34 @@ def main():
     # ==========================================
     if page == "📖 Story Overview":
         st.title("📖 My 3-Year Digital Journey")
-        st.markdown("A macro-level look at how my productivity and screen time have evolved throughout my university career.")
+        st.markdown("A macro-level look at how my productivity has evolved since I started university.")
         
-        # 1. LINE CHART: 3-Year Growth Story
+        # 1. LINE CHART: Simple and direct
         fig_line = px.line(
             df_monthly, 
             x="semester", 
             y="avg_productivity_score", 
             markers=True,
-            title="Long-Term Productivity Growth (3 Years)",
-            labels={"semester": "Academic Semester", "avg_productivity_score": "Avg Productivity (1-10)"},
-            color_discrete_sequence=["#06b6d4"] # Cyan accent
+            title="How My Productivity Changed Over 3 Years",
+            labels={"semester": "Academic Timeline", "avg_productivity_score": "Self-Rated Productivity (out of 10)"},
+            color_discrete_sequence=["#06b6d4"] 
         )
         st.plotly_chart(style_chart(fig_line), use_container_width=True)
         
-        st.info("💡 Insight: Notice how productivity dips during the summer breaks but generally trends upward as coursework becomes more demanding in Year 3.")
+        st.info("💡 Insight: Notice the pattern! Productivity drops during summer breaks but climbs steadily as the coursework gets harder.")
 
     # ==========================================
-    # PAGE 2: DAILY BEHAVIOR (EDA)
+    # PAGE 2: DAILY BEHAVIOR (EDA) - SIMPLIFIED
     # ==========================================
-    elif page == "📊 Daily Behavior (EDA)":
-        st.title("📊 Exploratory Data Analysis: March 2026")
-        st.markdown("A micro-level look at daily habits. Use the filters below to explore the data.")
+    elif page == "📊 Daily Habits (March)":
+        st.title("📊 My Daily Habits (March 2026)")
+        st.markdown("What does a typical day look like for me right now?")
         
         # Filters
-        st.sidebar.header("🔍 Filter Daily Data")
+        st.sidebar.header("🔍 Filter Data")
         selected_days = st.sidebar.multiselect("Select Day Type:", options=df_daily['weekday_type'].unique(), default=df_daily['weekday_type'].unique())
-        max_stress = st.sidebar.slider("Maximum Stress Level:", min_value=1, max_value=10, value=10)
         
-        filtered_df = df_daily[(df_daily['weekday_type'].isin(selected_days)) & (df_daily['stress_level'] <= max_stress)]
+        filtered_df = df_daily[df_daily['weekday_type'].isin(selected_days)]
         
         # Metrics
         c1, c2, c3, c4 = st.columns(4)
@@ -141,58 +140,59 @@ def main():
         col1, col2 = st.columns(2)
         
         with col1:
-            # 2. SCATTER PLOT: Study vs Productivity
-            fig_scatter = px.scatter(
-                filtered_df, 
-                x="study_hours", 
-                y="productivity_score",
-                color="weekday_type",
-                size="caffeine_intake_cups",
-                title="Relationship: Study Hours vs. Productivity",
-                labels={"study_hours": "Study Hours", "productivity_score": "Productivity Score (1-10)"},
-                color_discrete_sequence=["#3b82f6", "#a855f7"] # Blue and Purple
+            # 2. BAR CHART: Easy to read comparison across days
+            # Grouping the data to get the average screen time per day
+            avg_screen_time = filtered_df.groupby('day_of_week')['total_screen_time_hours'].mean().reset_index()
+            
+            fig_bar_days = px.bar(
+                avg_screen_time, 
+                x="day_of_week", 
+                y="total_screen_time_hours",
+                title="Which Days Do I Look at Screens the Most?",
+                labels={"day_of_week": "", "total_screen_time_hours": "Average Hours"},
+                color_discrete_sequence=["#3b82f6"]
             )
-            st.plotly_chart(style_chart(fig_scatter), use_container_width=True)
+            st.plotly_chart(style_chart(fig_bar_days), use_container_width=True)
 
         with col2:
-            # 3. HEATMAP: Daily Patterns (Calendar Style)
-            day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-            fig_heat = px.density_heatmap(
-                filtered_df, 
-                x="day_of_week", 
-                y="Week Number", 
-                z="total_screen_time_hours",
-                histfunc="avg",
-                title="Calendar Heatmap: Screen Time Intensity",
-                category_orders={"day_of_week": day_order},
-                color_continuous_scale="Teal"
+            # 3. DONUT CHART: Replaces the complex heatmap. Everyone understands proportions.
+            app_usage = filtered_df['most_used_app_category'].value_counts().reset_index()
+            app_usage.columns = ['App Category', 'Days as Most Used']
+            
+            fig_donut = px.pie(
+                app_usage, 
+                names="App Category", 
+                values="Days as Most Used",
+                hole=0.4, # Makes it a modern donut chart instead of a standard pie chart
+                title="Where Does My Digital Time Go?",
+                color_discrete_sequence=px.colors.sequential.Teal
             )
-            # Invert Y axis so Week 1 is at the top like a calendar
-            fig_heat.update_yaxes(autorange="reversed")
-            st.plotly_chart(style_chart(fig_heat), use_container_width=True)
+            # Make the labels simple and clean
+            fig_donut.update_traces(textinfo='percent+label', showlegend=False)
+            st.plotly_chart(style_chart(fig_donut), use_container_width=True)
 
     # ==========================================
-    # PAGE 3: ACADEMIC TRENDS
+    # PAGE 3: ACADEMIC TRENDS - CLEAR LEGENDS
     # ==========================================
-    elif page == "📈 Academic Trends":
-        st.title("📈 Academic Workload vs Digital Distractions")
-        st.markdown("Comparing focused academic time against social media usage over the past 3 years.")
+    elif page == "📈 Long-Term Trends":
+        st.title("📈 Academic Workload vs. Distractions")
+        st.markdown("Comparing focused study time against social media scrolling over the past 3 years.")
         
-        # 4. GROUPED BAR CHART: Social Media vs Study
-        fig_bar = px.bar(
+        # 4. GROUPED BAR CHART: Clearer labels
+        fig_bar_trends = px.bar(
             df_monthly, 
             x="semester", 
             y=["avg_study_hours", "avg_social_media_hours"],
             barmode="group",
             title="The Trade-off: Study Time vs. Social Media",
-            labels={"value": "Average Hours per Day", "variable": "Activity Type", "semester": "Semester"},
+            labels={"value": "Hours per Day", "variable": "Activity Type", "semester": ""},
             color_discrete_map={"avg_study_hours": "#06b6d4", "avg_social_media_hours": "#64748b"}
         )
-        # Clean up the legend names
-        newnames = {'avg_study_hours':'Study Hours', 'avg_social_media_hours': 'Social Media'}
-        fig_bar.for_each_trace(lambda t: t.update(name = newnames[t.name]))
+        # Clean up the legend names for the audience
+        newnames = {'avg_study_hours':'Focused Study Time', 'avg_social_media_hours': 'Social Media & Scrolling'}
+        fig_bar_trends.for_each_trace(lambda t: t.update(name = newnames[t.name]))
         
-        st.plotly_chart(style_chart(fig_bar), use_container_width=True)
+        st.plotly_chart(style_chart(fig_bar_trends), use_container_width=True)
 
     # ==========================================
     # PAGE 4: ETHICS & LIMITATIONS
@@ -201,13 +201,13 @@ def main():
         st.title("⚖️ Ethical Considerations")
         st.markdown("""
         ### 1. The Trap of Self-Reporting
-        Metrics like 'productivity' and 'stress' are subjective. A highly productive day spent brainstorming offline might incorrectly appear as a "low data" day on this dashboard.
+        Metrics like 'productivity' and 'stress' are subjective. A highly productive day spent brainstorming offline might incorrectly appear as a "lazy" day on this dashboard if screen time was low.
         
         ### 2. Correlation vs. Causation
-        The scatter plots reveal relationships (e.g., high caffeine and high stress), but they do not prove causation. Does caffeine cause stress, or do stressful deadlines cause an increase in caffeine consumption?
+        The charts show trends, but they don't prove causation. For example, does caffeine cause stress, or do stressful deadlines cause me to drink more caffeine?
         
         ### 3. Data Privacy
-        Behavioral tracking contains sensitive metadata. This dashboard utilizes aggregated summaries to protect personal privacy while still communicating meaningful data science insights.
+        Behavioral tracking contains sensitive metadata. This dashboard utilizes aggregated summaries to protect my privacy while still sharing meaningful insights.
         """)
 
 if __name__ == "__main__":
