@@ -97,7 +97,7 @@ def main():
     # --- SIDEBAR PROJECT LEAD INFO ---
     st.sidebar.image("https://talloiresnetwork.tufts.edu/wp-content/uploads//Parami-University-1.png", use_container_width=True)
     st.sidebar.markdown("---")
-    st.sidebar.subheader("Project Lead Info")
+    st.sidebar.subheader("Personal Info")
     st.sidebar.write("**Name:** Min Thant Hein")
     st.sidebar.write("**ID:** PIUS20230001")
     st.sidebar.write("**Contact Email:** minthanthein@parami.edu.mm")
