@@ -130,11 +130,11 @@ I chose simple charts — bar charts, line charts, and donut charts — because 
 
 I did not use the charts to exaggerate my results. For example, I did not start the Y-axis at a high number to make improvements look bigger than they are. I also wrote captions below each chart to explain what it shows in plain language.
 
-One risk with my comparison table is that the arrows (↑ or ↓) might make small differences look more important than they really are. I tried to address this by marking very small differences as "Watch" instead of labeling them as clearly better or worse.
+One risk with my comparison table is that the arrows (up or down) might make small differences look more important than they really are. I tried to address this by marking very small differences as "Watch" instead of labeling them as clearly better or worse.
 
 #### Final Note
 
-This project is a personal learning exercise. The findings only apply to me and my situation. I would not tell other students to follow the same decisions just because they worked for me in one month of data. Data can tell us interesting things, but we should always be careful about how much we trust it — especially when the dataset is small and self-reported.
+This project is a personal learning exercise. The findings only apply to me and my situation. I would not tell other students to follow the same decisions just because they worked for me in one month of data. Data can tell us interesting things, but we should always be careful about how much we trust it, especially when the dataset is small and self-reported.
 
 ---
 
