@@ -93,17 +93,6 @@ def main():
     )
     
     st.sidebar.divider()
-
-    # --- SIDEBAR PROJECT LEAD INFO ---
-    st.sidebar.image("https://talloiresnetwork.tufts.edu/wp-content/uploads//Parami-University-1.png", use_container_width=True)
-    st.sidebar.markdown("---")
-    st.sidebar.subheader("Project Lead Info")
-    st.sidebar.write("**Name:** Min Thant Hein")
-    st.sidebar.write("**ID:** PIUS20230001")
-    st.sidebar.write("**Contact Email:** minthanthein@parami.edu.mm")
-    st.sidebar.write("**Course:** Data Communication and Ethics")
-    st.sidebar.write("**Professor:** Dr. Aye Hnin Khine")
-    st.sidebar.markdown("---")
     
     # ==========================================
     # PAGE 1: STORY OVERVIEW
@@ -153,7 +142,7 @@ def main():
         with col1:
             # 2. BAR CHART: Easy to read comparison across days
             # Grouping the data to get the average screen time per day
-            avg_screen_time = filtered_df.groupby('day_of_week', observed=False)['total_screen_time_hours'].mean().reset_index()
+            avg_screen_time = filtered_df.groupby('day_of_week')['total_screen_time_hours'].mean().reset_index()
             
             fig_bar_days = px.bar(
                 avg_screen_time, 
