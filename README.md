@@ -4,21 +4,6 @@ A personal data project exploring the relationship between screen time, study ha
 
 ---
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Project Motivation](#project-motivation)
-- [Datasets](#datasets)
-- [Dashboard Features](#dashboard-features)
-- [Report](#report)
-  - [1. Story Description](#1-story-description)
-  - [2. Key Findings](#2-key-findings)
-  - [3. Decision-Making Explanation](#3-decision-making-explanation)
-  - [4. Ethical Discussion](#4-ethical-discussion)
-- [Technologies Used](#technologies-used)
-- [How to Run](#how-to-run)
-
----
 
 ## Project Overview
 
