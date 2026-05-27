@@ -50,6 +50,12 @@ def set_custom_theme(image_path):
             hr {{
                 border-color: rgba(6, 182, 212, 0.3) !important;
             }}
+            /* Style the expander to fit the dark theme */
+            .streamlit-expanderHeader {
+                color: #e2e8f0 !important;
+                background-color: rgba(15, 23, 42, 0.9) !important;
+                border-radius: 5px;
+            }
             </style>
             """,
             unsafe_allow_html=True
@@ -101,8 +107,8 @@ def main():
     st.sidebar.write("**Name:** Min Thant Hein")
     st.sidebar.write("**ID:** PIUS20230001")
     st.sidebar.write("**Contact Email:** minthanthein@parami.edu.mm")
-    st.sidebar.write("**Course:** Data Communication and Ethics")
-    st.sidebar.write("**Professor:** Dr. Aye Hnin Khine")
+    st.sidebar.write("**Course:** Introduction to Machine Learning")
+    st.sidebar.write("**Professor:** Dr. Nwe Nwe Htay Win")
     st.sidebar.markdown("---")
     
     # ==========================================
@@ -152,7 +158,6 @@ def main():
         
         with col1:
             # 2. BAR CHART: Easy to read comparison across days
-            # Grouping the data to get the average screen time per day
             avg_screen_time = filtered_df.groupby('day_of_week', observed=False)['total_screen_time_hours'].mean().reset_index()
             
             fig_bar_days = px.bar(
@@ -174,13 +179,23 @@ def main():
                 app_usage, 
                 names="App Category", 
                 values="Days as Most Used",
-                hole=0.4, # Makes it a modern donut chart instead of a standard pie chart
+                hole=0.4, 
                 title="Where Does My Digital Time Go?",
                 color_discrete_sequence=px.colors.sequential.Teal
             )
             # Make the labels simple and clean
             fig_donut.update_traces(textinfo='percent+label', showlegend=False)
             st.plotly_chart(style_chart(fig_donut), use_container_width=True)
+            
+        # --- NEW SECTION: BIAS AND LIMITATIONS EXPANDER ---
+        st.divider()
+        with st.expander("⚠️ Bias and Limitations in this Data"):
+            st.markdown("""
+            * **Measurement Bias:** This dashboard relies heavily on digital screen time tracking. Highly productive "offline" activities—like reading physical textbooks, writing in notebooks, or attending in-person lectures—are entirely missed by this metric.
+            * **Self-Reporting Bias:** Metrics such as 'productivity', 'stress', and 'mood' are completely subjective. A score of 7/10 on a relaxed Sunday might represent a very different actual workload than a 7/10 on a stressful Monday.
+            * **Recall Bias:** If variables like sleep hours or caffeine intake were manually logged at the end of the day (or week), they are prone to human memory errors and underestimation.
+            * **Confirmation Bias:** As the creator of this dataset, I may subconsciously interpret visualizations to validate my pre-existing beliefs about my own study habits.
+            """)
 
     # ==========================================
     # PAGE 3: ACADEMIC TRENDS - CLEAR LEGENDS
