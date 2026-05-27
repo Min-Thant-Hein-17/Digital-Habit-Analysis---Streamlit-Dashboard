@@ -1,4 +1,4 @@
-# 📱 Digital Habit Analysis Dashboard
+# Digital Habit Analysis Dashboard
 
 A personal data project exploring the relationship between screen time, study habits, and academic productivity across three years of university life.
 
