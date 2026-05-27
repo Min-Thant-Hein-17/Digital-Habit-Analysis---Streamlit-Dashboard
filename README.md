@@ -144,4 +144,4 @@ The dashboard is publicly deployed and accessible at:
 
 🔗 **[https://digital-habit-analysis---app-dashboard.streamlit.app/](https://digital-habit-analysis---app-dashboard.streamlit.app/)**
 
-No installation required. Open the link in any browser to explore the interactive dashboard, apply filters, and navigate between sections.
+No installation was required. We can just open the link in any browser to explore the interactive dashboard, apply filters, and navigate between sections.
