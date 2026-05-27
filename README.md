@@ -112,7 +112,7 @@ The honest limitation is that I estimated my social media hours myself — I did
 
 #### Privacy
 
-All the data in this project is my own. I collected it myself by filling in a spreadsheet every day or every month. I did not use any app to track me automatically, and I did not include any information about other people. There are no real names, no school names, and no app names in the dataset — only categories like "Study Tools" or "Social Media." This way, even if someone sees my data, they cannot identify me or anyone else from it.
+All the data in this project is my own. I collected it myself by filling in a spreadsheet every day or every month. I did not use any app to track me automatically, and I did not include any information about other people. There are no real names, no school names, and no app names in the dataset, only categories like "Study Tools" or "Social Media." This way, even if someone sees my data, they cannot identify me or anyone else from it.
 
 #### Bias and Honest Limitations
 
