@@ -46,7 +46,7 @@ The analysis relies on two datasets:
 
 ### 1. Story Description
 
-I am a Year 2 university student, and this project is about my own digital habits. I chose this topic because it is something I deal with every day — spending too much time on my phone, feeling tired, and sometimes not being productive even when I studied for many hours. I wanted to understand why that happens.
+I am a third-year university student, and this project is about my own digital habits. I chose this topic because it is something I deal with every day — spending too much time on my phone, feeling tired, and sometimes not being productive even when I studied for many hours. I wanted to understand why that happens.
 
 I started tracking my habits from August 2023, when I first entered university. Every month, I recorded things like how many hours I used my screen, how many hours I studied, how well I slept, and how stressed I felt. I gave myself a score from 1 to 10 for productivity, mood, and focus each month. In March 2026, I also tracked these things every single day, so I could see more detailed patterns.
 
