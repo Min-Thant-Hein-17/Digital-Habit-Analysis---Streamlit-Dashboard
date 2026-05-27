@@ -22,7 +22,7 @@ The analysis relies on two datasets:
 | `digital_habits_march2026.csv` | March 1–31, 2026 | 31 days | Screen time, study hours, productivity, sleep, stress, mood, app category, caffeine, late-night usage |
 | `parami_digital_summary_3years.csv` | Aug 2023 – Mar 2026 | 32 months | Monthly averages for all core metrics, burnout indicator, dominant app category, semester label |
 
-> ⚠️ Both datasets are self-collected and self-reported. No real names, device identifiers, or location data are included.
+> Note: Both datasets are self-collected and self-reported. No real names, device identifiers, or location data are included.
 
 ## Dashboard Features
 
