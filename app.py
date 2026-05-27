@@ -101,8 +101,8 @@ def main():
     st.sidebar.write("**Name:** Min Thant Hein")
     st.sidebar.write("**ID:** PIUS20230001")
     st.sidebar.write("**Contact Email:** minthanthein@parami.edu.mm")
-    st.sidebar.write("**Course:** Introduction to Machine Learning")
-    st.sidebar.write("**Professor:** Dr. Nwe Nwe Htay Win")
+    st.sidebar.write("**Course:** Data Communication and Ethics")
+    st.sidebar.write("**Professor:** Dr. Aye Hnin Khine")
     st.sidebar.markdown("---")
     
     # ==========================================
