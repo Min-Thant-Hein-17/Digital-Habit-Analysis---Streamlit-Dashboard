@@ -11,6 +11,15 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ---SIDE BAR---
+st.sidebar.markdown("---")
+st.sidebar.subheader("Owner's Information")
+st.sidebar.write("**Name:** Min Thant Hein")
+st.sidebar.write("**ID:** PIUS20230001")
+st.sidebar.write("**Professor:** Dr. Aye Hnin Khine")
+st.sidebar.markdown("---")
+
+
 # --- CUSTOM CSS & BACKGROUND ---
 def set_custom_theme(image_path):
     try:
